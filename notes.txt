@@ -2163,3 +2163,187 @@ Display the updated value of the number on the console after each shift operatio
 
 These assignments will provide you with practice on different Java operators. Make sure to handle user input properly and display the results accurately.
 
+constructor:
+````````````
+
+how can we create the object for the class?
+
+ <classname> <objectname> = new <classname>();
+ 
+ Student obj = new Student();
+ 
+ Student ->name of the class
+ obj => name of the object
+ = -> assignment operator
+ new -> dynamic memory alloccation operator
+ Student() -> Constrcutor
+ 
+ method:
+ 
+   method is the place where we are writing the logic 
+   to perform some operations based on the requirement.
+   
+   <returntype> <methodname>(){
+   
+   // block of statement or logic
+   }
+   
+   public void display(){
+     //logic 
+   }
+   
+   
+   void ->returntype -> not returning any value.
+   
+   
+
+constructor:
+`````````````
+
+constructor is a special member method 
+
+ constructor name and class name must be always same.
+ 
+ 
+rules to define the constructor:
+
+1.constructor name and class name must be same
+2.constructor should not return anything even void also.
+
+class Student{
+
+   //constructor 
+    public Student(){
+	
+	
+	}
+
+}
+
+note:
+whenever we create the object, corresponding consturctor gets invoked.
+explicitly we no need to call like normal methods.
+
+
+
+purpose:
+`````````
+to initalize the object
+
+what do you mean by initialization?
+
+   assigning the values to variables.
+   
+   
+  defualt values can be assigned to the properties of the class 
+  by system defined default consturctor.
+  
+  
+  user defined default constructor:
+  purpose: to assign our own values into the properties of the class 
+  based on the requirement.
+  
+  
+example:
+`````````
+
+public class Student {
+
+	int stid;
+	String stname;
+	
+	/*
+	 * public Student() {
+	 * 
+	 * stid=0; stname=null; }
+	 */
+	
+	//user defined default consturctor
+	public Student()
+	{
+		stid=100;
+		stname="Roslin";
+	}
+	
+	public void display()
+	{
+		System.out.println(stid + " " + stname);
+	}
+	
+	
+	
+	//define main()
+	
+	public static void main(String[] args) {
+		
+		Student obj = new Student();
+		obj.display();
+		
+	}
+}
+
+
+
+types of constructor:
+`````````````````````
+1.system defined default constructor
+2.user defined default constructor
+3.parameterized constructor
+
+default constructor:
+
+ it is a constructor which doesn't takes any parameters.
+ 
+ note:
+ when we define any parameterized constructor, compiler will never 
+ generate system defined default constructor.
+ 
+ 
+example:
+`````````
+
+public class Student {
+
+	int stid;
+	String stname;
+	
+	/*
+	 * public Student() {
+	 * 
+	 * stid=0; stname=null; }
+	 */
+	
+	//user defined parameterized consturctor
+	public Student(int stid, String stname)
+	{
+		this.stid=stid;
+		this.stname=stname;
+	}
+	
+	public void display()
+	{
+		System.out.println(stid + " " + stname);
+	}
+	
+	
+	
+	//define main()
+	
+	public static void main(String[] args) {
+		//created the object using parameterized constructor
+		Student obj = new Student(100,"Yuanyang");
+		obj.display();
+		
+	}
+}
+
+purpose of parameterized constructor:
+while we are creating the object only, we can initalize the values.
+
+
+
+
+
+
+
+
