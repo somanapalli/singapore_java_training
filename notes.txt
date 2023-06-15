@@ -2078,3 +2078,88 @@ use continue statement in labelled for loop?
 use continue statement in while loop?
 use continue staetment in do while loop?  
   
+how to read the input from the keyboard:
+``````````````````````````````````````````
+example:
+`````````
+import java.util.Scanner;
+
+public class Test8 {
+
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("enter the first number");
+		
+		int fno = s.nextInt();
+		
+		System.out.println("enter the second number");
+		
+		int sno = s.nextInt();
+		
+		int result = fno+sno;
+		
+		System.out.println("sum is : " + result);
+		
+	}
+}
+
+
+example on Scanner class to read the String data:
+```````````````````````````````````````````````````
+import java.util.Scanner;
+
+public class Test8 {
+
+	
+	public static void main(String[] args) {
+		
+		
+		Scanner s = new Scanner(System.in);
+		
+		System.out.println("enter first name");
+		
+		
+		String fname = s.next();
+		
+		System.out.println("enter last name");
+		String lname =s.next();
+		
+		String fullName = fname+lname;
+		
+		System.out.println("fullname is: " + fullName);
+		
+	}
+}
+
+
+assignments:
+`````````````
+Certainly! Here are some additional assignments related to Java operators:
+
+1. Conditional Operators:
+Write a Java program that takes an integer as input from the user and determines if it is a positive number, negative number, or zero using the conditional operator. Display the result on the console.
+
+2. Increment and Decrement Operators:
+Write a Java program that takes a number as input from the user and performs the following operations:
+- Increment the number by 1 using the increment operator (++).
+- Decrement the number by 1 using the decrement operator (--).
+Display the updated value of the number on the console after each operation.
+
+3. Ternary Operator:
+Write a Java program that takes three numbers as input from the user and determines the maximum of those numbers using the ternary operator. Display the maximum number on the console.
+
+4. Equality and Inequality Operators:
+Write a Java program that takes two strings as input from the user and checks if they are equal using the equality operator (==) and the inequality operator (!=). Display "Equal" or "Not Equal" on the console based on the comparison result.
+
+5. Bitwise Shift Operators:
+Write a Java program that takes an integer as input from the user and performs the following bitwise shift operations:
+- Left shift the number by 2 positions.
+- Right shift the number by 3 positions.
+Display the updated value of the number on the console after each shift operation.
+
+These assignments will provide you with practice on different Java operators. Make sure to handle user input properly and display the results accurately.
+
