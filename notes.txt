@@ -2742,6 +2742,31 @@ practice:
 ->method overloading
 ->method ovverriding
 
+assignment-1:
+`````````````
+Implement an employee hierarchy in Java using inheritance. 
+Create a base class called Employee and derived classes such as Manager, 
+Engineer, and Intern. Each derived class should have its specific attributes and 
+behavior. For example, the Manager class might have a bonus calculation method, 
+while the Intern class could have an intern-specific task method. 
+Write a program that demonstrates the use of this employee hierarchy by creating 
+instances of different employees and performing actions specific to each employee type.
+
+
+assignment-2:
+`````````````
+Develop a simple banking system using Java inheritance. Create a base class called 
+BankAccount and derived classes such as SavingsAccount and CheckingAccount. 
+Each derived class should have its specific methods, such as calculating interest for 
+savings accounts or implementing overdraft protection for checking accounts. 
+Write a program that allows users to perform basic banking operations such as 
+depositing, withdrawing, and checking account balances for different account types.
+
+
+
+
+
+
 ->abstraction (abstract class, interface)
 ->super keyword
 ->Object class (brief idea)
