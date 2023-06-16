@@ -2344,6 +2344,430 @@ while we are creating the object only, we can initalize the values.
 
 
 
+note:
+
+by differentiating the package names, we can define the multiple 
+classes with the same name.
+
+but inside the same package, we can't define more than one class 
+with the same name.
+
+oops principles:
+`````````````````
+
+  java is object oriented programming language
+  
+  why java is object oriented programming language?
+  
+  ->because it follows oops principles which were given by 
+    object management group(candian organization)
+	
+.net
+php
+python etc.. 
+java 
+cpp
+
+   -object oriented programming languages
+
+   
+what are the oops principles we have?
+
+   we have 4 principles are there 
+   
+     1.inheritance
+	 2.polymorphism
+	 3.abstraction 
+	 4.encapsulation 
+	 
+	 
+
+to implement above principles in java, we are using two concepts
+
+  1.class 
+  2.object
+  
+
+inheritance:
+````````````
+inheritance is also known as is-a relation.
+
+it is the process of getting the properties or acquring the properties 
+from parent class to child class. 
+
+parent class:
+it is a class which is giving the properties
+child class:
+it is also a class which is taking the properties.
+
+whenever we apply the inheritance, it is recommended to create the objectfor 
+child class.
+
+with the object of child class, we are able to invoke parent class 
+properties and child class properties.
+
+
+ 
+  parent class contains parent class properties only
+  child class contains child class proeprties + parent class properties
+  
+  
+ without inheritance:
+ ````````````````````
+  class Test1{
+  
+  
+      public void sum(int x, int y)
+	  {
+	  return x+y;
+	  }
+  }
+  
+  
+  
+  class Test2{
+      public void sum(int x, int y)
+	  {
+	  return x+y;
+	  }
+  }
+  
+  
+  with inheritance:
+  `````````````````
+  //parent class
+  class Test1{
+  
+  
+      public void sum(int x, int y)
+	  {
+	  return x+y;
+	  }
+  }
+  
+  
+  //child class
+  class Test2 extends Test1{
+      public static void main(String[] args){
+	  
+	  
+	     Test2 obj = new Test2();
+		 int sum = obj.sum(3,4);
+		 System.out.println("sum is : " +sum);
+	  }
+  }
+  
+advantage of inheritace:
+`````````````````````````
+1.it reduces the duplication of the code
+2.in reduces the memory consumption 
+3.finally it leads to increase the performance of the application.
+
+
+note:
+we can achieve the concpet of inheritance by using one java reserved 
+keyword i.e .'extends' that should be used in the context of child 
+class.
+
+
+example:
+`````````
+
+
+class Parent
+{
+	
+	public void sum()
+	{
+		System.out.println("iam from sum");
+	}
+}
+
+class Child extends Parent
+{
+	public void sub()
+	{
+		System.out.println("iam from sub");
+	}
+}
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		Child obj = new Child();
+		obj.sum();
+		obj.sub();
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+example:
+````````
+
+
+
+class Parent
+{
+	
+	 void sum()
+	{
+		System.out.println("iam from sum");
+	}
+}
+
+ class Child extends Parent
+{
+    void sub()
+	{
+		System.out.println("iam from sub");
+	}
+}
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		/*
+		 * Child obj = new Child(); 
+		 * obj.sum(); 
+		 * obj.sub();
+		 */
+		
+		Parent obj = new Parent();
+		obj.sum();
+		//error: obj.sub();
+		
+	}
+
+}
+
+
+polymorphism in java:
+`````````````````````
+polymorphism in java makes it possible to write a method
+that can correctly process lots of different types of functioanlites
+that have the same name.
+
+we also gain consistency in our code by using polymorphism.
+
+we also improves readability of the code.
+
+
+ one form into many forms.
+ 
+ poly: many
+ morph:forms
+ 
+ to achieve this polymorphism in java, we have two concepts are there
+ 
+ 1.method overloading
+ 2.method overriding
+ 
+ 
+ 
+method overloading:
+```````````````````
+ method name is same but signature is different.
+ 
+ signature:
+ 
+ 
+    no.of parameters
+	types of parameters
+	
+	or atleast order of parameters.
+	
+	
+
+example:
+   
+    public void sum(int x, int y)
+	{
+	
+	}
+	
+	public void sum(float x, float y)
+	{
+	}
+	
+	public void sum(int x, int y, int z)
+	{
+	}
+
+   public void sum(int x, float y)
+   {
+   }
+   
+   public void sum(float x, int y)
+   {
+   }
+   
+
+advantage of method overloading:
+
+we can define multiple functioanlites by defining the same name
+just by changing the parameters.
+
+so that programmer can easily remember the method(s)
+
+readability of the code gets increased because of method overloading.
+
+note:
+to perform method overloading one class is enough.
+
+example:
+````````
+package com.accenture.java;
+
+public class Test2 {
+	
+	public void sum(int x, int y)
+	{
+		System.out.println("integer sum is : " +(x+y));
+	}
+	
+	public void sum(float x, float y)
+	{
+		System.out.println("float sum is :" + (x+y));
+	}
+	
+	public void sum(int x, int y, int z)
+	{
+		System.out.println("three integer sum is: " +(x+y+z));
+	}
+	
+	public static void main(String[] args) {
+		
+		Test2 obj= new Test2();
+		obj.sum(1, 2);
+		obj.sum(2.3f, 3.4f);
+		obj.sum(4,5,6);
+	}
+
+}
+
+note:
+compile time polymorphism , polymorphism can be resolved by the 
+reference variable at compiletime by the java compiler that means 
+a method call can be binded with which method that can be decided by 
+the reference variable at compiletime by the java compiler.
+
+this process is we call it as compile time polymorphism or static 
+polymorphism 
+
+
+method overriding:
+``````````````````
+method name is same but body/logic is differnt from parent class to 
+child class.
+
+to achieve method overriding minimum we require two classes with 
+parent-child relation.
+
+runtime polymorphism, polymorphism can be resolved at runtime based 
+on the object type not based on the refefence variable like compile time 
+polymorphism.
+
+Parent.java:
+`````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	public void sum(int x, int y)
+	{
+		System.out.println("parent sum is: " +(x+y));
+	}
+}
+
+Child.java:
+```````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+	@Override
+   public void sum(int x, int y)
+   {
+	   System.out.println("integer substraction is: " +(x-y));
+   }
+}
+
+
+
+
+Test1.java:
+```````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+//		//child class object creation 
+//		Child obj = new Child();
+//		obj.sum(4, 3);
+//		
+//		//parent class object creation 
+//		Parent obj1 = new Parent();
+//		obj1.sum(4, 3);
+//		
+		-
+		//runtime polymorphism
+		Parent obj2;
+		obj2= new Child();
+		
+		obj2.sum(4, 3);
+	
+	}
+
+}
+practice:
+```````````
+->inheritance
+->method overloading
+->method ovverriding
+
+->abstraction (abstract class, interface)
+->super keyword
+->Object class (brief idea)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
