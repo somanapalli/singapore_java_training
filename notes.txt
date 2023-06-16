@@ -2767,21 +2767,546 @@ depositing, withdrawing, and checking account balances for different account typ
 
 
 
-->abstraction (abstract class, interface)
-->super keyword
-->Object class (brief idea)
+super keyword:
+`````````````
+this is representing current class object
+but where as super is refereing parent class 
+
+suepr is the java reseved keyword 
+
+which is used to refer parent class properties from the 
+child class context.
+
+
+Parent.java:
+`````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	public void sum(int x, int y)
+	{
+		System.out.println("parent sum is: " +(x+y));
+	}
+}
+Child.java:
+```````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+	@Override
+   public void sum(int x, int y)
+   {
+		//call parent class method
+		
+		super.sum(5, 4);
+	   System.out.println("integer substraction is: " +(x-y));
+   }
+}
+
+Test1.java:
+```````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+//		//child class object creation 
+//		Child obj = new Child();
+//		obj.sum(4, 3);
+//		
+//		//parent class object creation 
+//		Parent obj1 = new Parent();
+//		obj1.sum(4, 3);
+//		
+		
+		//runtime polymorphism
+		Parent obj2;
+		obj2= new Child();
+		
+		obj2.sum(4, 3);
+	
+	}
+
+}
+
+
+note:
+writing the super() is optional to call the parent class 
+default constructor from the context of child class .
+
+
+example:
+``````````
+Parent.java:
+``````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	public Parent() {
+		
+		System.out.println("parent class consturtor");
+	}
+}
+Child.java:
+````````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+   public Child() {
+	   
+	   super();//calling super class default constructor
+	   System.out.println("child class constructor");
+   }
+}
+Test1.java:
+```````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+
+	Child obj = new Child();
+	}
+
+}
+
+
+
+when writing the super() is mandatory?
+
+
+when we have only parameterized constructor in my parent class, that 
+time we have to call the parent class parameterized constructor from 
+the child class constructor using super() mandatorily.
+
+Parent.java:
+``````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	public Parent(int x, int y) {
+		
+		System.out.println("parent class parameterized consturtor");
+	}
+}
+
+Child.java:
+````````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+   public Child()
+   {
+	   //parent class parametrized constructor
+	   super(10,20);
+	   
+	   System.out.println("Child class construtor");
+   }
+}
+
+Test1.java:
+``````````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+
+	Child obj = new Child();
+	}
+
+}
 
 
 
 
+this is a java reserved keyword we can use in two purposes
+
+1.when class level variables and method or constructor level variables 
+are same to differntiate we have to use this keyword
+  
+    this.x =x;
+	this.y=y ;
+	
+2.to call current class either default constructor or parameterized 
+constructor we have to use this keyword.
+
+ syntax:
+   this() -> to call current class default constructor 
+   
+   this(...) -> to call current class parameterized constructor
+   
+   
+   
+Parent.java:
+`````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	Parent(){
+		//call the current class parameterized constructor
+		this(2,3);
+		System.out.println("parent class default constructor");
+		
+	}
+	
+	Parent(int x, int y) {
+		//call the current class single parameterized constructor
+		this(3);
+		System.out.println("parent class parameterized consturtor");
+	}
+	
+	Parent(int x)
+	{
+		System.out.println("parent class single parameterized ");
+	}
+	 
+	
+}
+
+Child.java:
+````````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+   public Child()
+   {
+	   //calling parent class default constructor
+	   super();
+	   
+	   System.out.println("Child class default construtor");
+   }
+}
+
+Test1.java:
+```````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+
+	Child obj = new Child();
+	}
+
+}
 
 
 
+abstraction:
+`````````````
+it is one of the object oriented programming principle.
+
+  abstraction is saying hiding the internal details and showing
+  services to the end users.
+  
+  abstraction is focussing on 
+  
+     what object will do?
+	 not how object will do?
+	 
+	 
+in java, to achieve this abstraction we are using two concepts
+  
+   1.abstract class
+   2.interface
+   
+
+abstract class:
+ abstract class contains both defined methods and undefined 
+ methods.
+ 
+ why should we define the method as an abstract method?
+ 
+  if a method is common to multiple classes , instead of giving 
+  the implementation directly first we declare that method 
+  and based on the requirement in different classes we can override
+  that abstract method and we can provide differnt logic(s).
+  
+  advantage:
+  security 
+  partially we can achieve 
+  it is a combination of both defined methods and undefined methods
+  
+partial abstraction we can achieve by using abstract class because
+abstract class might be chance of combination of both defined and 
+undefined methods.
+
+Test4.java:
+```````````
+package com.accenture.java;
+
+public abstract class Test4 {
+	
+	public abstract void sum(int x, int y);//method heading
+
+}
+
+
+Test5.java:
+```````````
+package com.accenture.java;
+//implementation class for an abstract class Test4
+
+public class Test5  extends Test4{
+
+	@Override
+	public void sum(int x, int y) {
+		System.out.println("sum is : " +(x+y));
+		
+	}
+
+	public static void main(String[] args) {
+		
+		Test4 obj = new Test5();
+		
+		obj.sum(4, 5);
+		
+	}
+}
 
 
 
+Test6.java:
+`````````````
+package com.accenture.java;
+
+public class Test6 extends Test4 {
+
+	@Override
+	public void sum(int x, int y) {
+		System.out.println("substraction is:"+(x-y));
+
+	}
+	
+	public static void main(String[] args) {
+		
+		Test4 obj = new Test6();
+		obj.sum(5, 4);
+	}
+
+}
+
+interface:
+``````````
+interface is a collection of constants and only abstract methods.
+
+syntax:
+
+    interface <interfacename>
+	{
+	 //abstract methods
+	}
+	
+note:
+by default interface variables are public static final 
+by default interface methods are public abstract.
 
 
+we no need to explictly use these keywords.
+
+i1.java:
+``````````
+package com.accenture.java;
+
+public interface i1 {
+	
+	int no= 100;
+	void sum(int x, int y);
+
+}
+
+Test7.java:
+``````````````
+package com.accenture.java;
+
+//implementation class
+public class Test7 implements i1 {
+
+	@Override
+	public void sum(int x, int y) {
+		System.out.println("sum is : " +(x+y));
+       
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		
+		i1 obj = new Test7();
+		obj.sum(4, 5);
+		
+	}
+
+}
+
+Bank.java
+`````````
+package com.accenture.java;
+
+public interface Bank {
+	
+	double rateOfInterest();
+
+}
+
+Icici.java:
+```````````
+package com.accenture.java;
+
+public class Icici implements Bank {
+
+	@Override
+	public double rateOfInterest() {
+		// TODO Auto-generated method stub
+		return 7.8;
+	}
+
+}
+
+CityBank.java:
+``````````````
+package com.accenture.java;
+
+public class CityBank implements Bank {
+
+	@Override
+	public double rateOfInterest() {
+		// TODO Auto-generated method stub
+		return 5.5;
+	}
+
+}
+
+Test8.java:
+```````````
+package com.accenture.java;
+
+public class Test8 {
+	
+	public static void main(String[] args) {
+		
+		Bank obj;
+		obj= new Icici();
+		System.out.println("icici rate of interest is : " +obj.rateOfInterest() );
+	    obj = new CityBank();
+	    System.out.println("citybank rate of interest is : " +obj.rateOfInterest());
+	}
+
+}
+
+
+note:
+`````
+static methods can be overloaded
+
+package com.accenture.java;
+
+public class Test2 {
+	
+	public static void sum(int x, int y)
+	{
+		System.out.println("integer sum is : " +(x+y));
+	}
+	
+	public static void sum(float x, float y)
+	{
+		System.out.println("float sum is :" + (x+y));
+	}
+	
+	public static void sum(int x, int y, int z)
+	{
+		System.out.println("three integer sum is: " +(x+y+z));
+	}
+	
+	public static void main(String[] args) {
+		
+	   //static area
+		
+		Test2.sum(1, 2);
+		Test2.sum(4.5f, 4.5f);
+		Test2.sum(3,4,5);
+		
+	}
+
+}
+
+
+note:
+static methods can't be participated in method overriding.
+static means constant.
+not expecting any changes
+
+overriding means changes
+
+package com.accenture.java;
+
+public class Parent
+{
+	
+	//static method
+	
+	public static void sum(int x, int y)
+	{
+		System.out.println("sum is: " +(x+y));
+	}
+	
+}
+
+Child.java:
+`````````package com.accenture.java;
+
+public class Child extends Parent
+{
+  public static void sum(int x, int y)
+  {
+	  System.out.println("substraction is:" +(x-y));
+  }
+}
+
+Test1.java:
+````````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+
+	Parent obj;
+	obj= new Child();
+	
+	obj.sum(4,3);
+	}
+
+}
 
 
 
