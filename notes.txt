@@ -3310,12 +3310,183 @@ public class Test1 {
 
 
 
+class Test1{
+}
+
+
+class Test2 extends Test1{
+}
+
+class Test3 extends Test2{
+
+}
 
 
 
+if a method is not present in child class, compiler will look for that 
+method inside parent class, if the method is available that gets 
+executed otherwise it gives you compile time error.
+
+
+Parent.java:
+````````````
+package com.accenture.java;
+
+public class Parent
+{
+	
+	public void m1()
+	{
+		System.out.println("parent method - m1");
+	}
+	
+}
+Child.java:
+```````````
+package com.accenture.java;
+
+public class Child extends Parent
+{
+  
+}
+
+Test1.java:
+```````````
+package com.accenture.java;
+
+//execution logic class
+public class Test1 {
+	
+	public static void main(String[] args) {
+		
+		
+
+	Child obj = new Child();
+	obj.m1();
+	
+	
+	}
+
+}
+
+note:
+`````
+for every class, there is a super class or parent class i.e java.lang.Object
+whether it  is pre-defined or user-defined class.
+
+
+class Stirng{
+}
+
+class Test1 {
+}
+
+example on Object  class as the super class:
+````````````````````````````````````````````
+package com.accenture.java;
+
+public class Test9  extends Object{
+	
+	
+	public String toString()
+	{
+		return "izar";
+	}
+	public static void main(String[] args) {
+		
+		
+		Test9 obj = new Test9();
+		
+		System.out.println(obj.hashCode());
+		System.out.println(obj.getClass().getName());
+		
+		System.out.println(obj.toString());
+		
+		
+	}
+
+}
+
+encapsulation:
+````````````````
+encapsulation is one of the object oriented programming principle.
+
+it is the process of wrapping up of variables and methods into a single unit.
+
+class is the best example for encapsulation.
+
+
+example:
+
+ class Student{
+ 
+   private int stid;
+   private String stname;
+ }
+ 
+ to make a normal java class as an encapsulated class it has to 
+ follow few rules.
+ 
+ 1.properties must be private.
+ 2.for every property we should define public setters and getter methods.
+ 
+ Student.java:
+ ```````````````
+ package com.accenture.java;
+
+//encapsulated class
+public class Student {
+
+	//private variables
+	
+	private int stid;
+	private String stname;
+	
+	
+	public int getStid() {
+		return stid;
+	}
+	public void setStid(int stid) {
+		this.stid = stid;
+	}
+	public String getStname() {
+		return stname;
+	}
+	public void setStname(String stname) {
+		this.stname = stname;
+	}
+	
+	@Override
+	public String toString()
+	{
+		return stid + " " +stname;
+	}
+}
+
+
+Test10.java:
+`````````````
+package com.accenture.java;
+
+public class Test10 {
+	
+	public static void main(String[] args) {
+		
+		
+		Student stu = new Student();
+		stu.setStid(100);
+		stu.setStname("joseph");
+		
+		
+		System.out.println("student id is: " + stu.getStid());
+	    System.out.println("student name is:" + stu.getStname());
+	}
+
+}
 
 
 
+ 
 
 
 
